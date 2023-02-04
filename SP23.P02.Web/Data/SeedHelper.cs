@@ -13,10 +13,9 @@ public static class SeedHelper
         var dataContext = services.GetRequiredService<DataContext>();
         await dataContext.Database.MigrateAsync();
 
-        AddStations(dataContext);
-        AddRoles(services);
-
-
+        await AddStations(dataContext);
+        await AddRoles(services);
+        await AddUsers(services);
 
     }
 
