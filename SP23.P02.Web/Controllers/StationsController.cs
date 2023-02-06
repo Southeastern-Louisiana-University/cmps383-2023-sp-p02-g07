@@ -98,7 +98,7 @@ public class StationsController : ControllerBase
 
         dataContext.SaveChanges();
 
-        return Ok();
+        return Ok(); 
     }
 
     private static bool IsInvalid(TrainStationDto dto)
