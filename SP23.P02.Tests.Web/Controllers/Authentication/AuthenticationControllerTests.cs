@@ -1,42 +1,11 @@
 ﻿using System.Net;
 using FluentAssertions;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using SP23.P02.Tests.Web.Dtos;
 using SP23.P02.Tests.Web.Helpers;
-using SP23.P02.Web.Features.Users;
 using UserDto = SP23.P02.Tests.Web.Dtos.UserDto;
 
 namespace SP23.P02.Tests.Web.Controllers.Authentication;
 
-[ApiController]
-[Route("api/authentication")]
-
-public class AuthenticationController : ControllerBase
-{
-    private readonly SignInManager<User> signInManager;
-    private readonly UserManager<User> userManager; 
-
-
-    public AuthenticationController(SignInManager<User> signInManager, UserManager<User> userManager)
-    {
-        this.signInManager = signInManager;
-        this.userManager = userManager;
-    }
-
-    [HttpGet("me")][Authorize] //wip. have to fix errors
-
-    public async Task<ActionResult<UserDto>> Me()
-    {
-        var username = User.GetCurrentUserName();
-        var resultDto = await GetUserDto(userManager.Users).SingleAsync(x => x.Username == username);
-
-        return Ok(resultDto);
-
-    }
-
-}
 
 [TestClass]
 public class AuthenticationControllerTests
