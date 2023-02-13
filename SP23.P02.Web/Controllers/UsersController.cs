@@ -96,8 +96,6 @@ namespace SP23.P02.Web.Controllers
                 UserName = newUser.UserName,
             });
 
-            transaction.Complete();
-
             
 
         }
