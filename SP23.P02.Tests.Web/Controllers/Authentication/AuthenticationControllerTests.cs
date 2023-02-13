@@ -1,9 +1,30 @@
 ﻿using System.Net;
 using FluentAssertions;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using SP23.P02.Tests.Web.Dtos;
 using SP23.P02.Tests.Web.Helpers;
+using SP23.P02.Web.Features.Users;
 
 namespace SP23.P02.Tests.Web.Controllers.Authentication;
+
+[ApiController]
+[Route("api/authentication")]
+
+public class AuthenticationController : ControllerBase
+{
+    private readonly SignInManager<User> signInManager;
+    private readonly UserManager<User> userManager; 
+
+
+    public AuthenticationController(SignInManager<User> signInManager, UserManager<User> userManager)
+    {
+        this.signInManager = signInManager;
+        this.userManager = userManager;
+    }
+
+    [HttpGet]
+}
 
 [TestClass]
 public class AuthenticationControllerTests
