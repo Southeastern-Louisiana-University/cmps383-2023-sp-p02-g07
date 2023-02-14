@@ -9,5 +9,5 @@ public class Role : IdentityRole<int>
 
     public const string User = nameof(User);
 
-    public ICollection<UserRole.UserRole> Users { get; } = new List<UserRole.UserRole>();
+    public ICollection<UserRole.UserRole> Users { get; set; } = new List<UserRole.UserRole>();
 } 

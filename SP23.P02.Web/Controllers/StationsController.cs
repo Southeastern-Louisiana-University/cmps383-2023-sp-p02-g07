@@ -49,6 +49,7 @@ public class StationsController : ControllerBase
         {
             Name = dto.Name,
             Address = dto.Address,
+            
         };
         stations.Add(station);
 
