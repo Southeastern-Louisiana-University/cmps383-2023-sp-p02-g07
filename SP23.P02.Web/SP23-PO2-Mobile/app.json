@@ -26,7 +26,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       }
-      "package": "com.selu.sp23.p02.g07"
+      "package": "com.selu383.sp23.p02.g07"
     },
     "web": {
       "favicon": "./assets/favicon.png"
