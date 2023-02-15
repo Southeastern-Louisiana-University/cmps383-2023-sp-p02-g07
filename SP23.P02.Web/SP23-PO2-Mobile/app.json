@@ -2,7 +2,6 @@
   "expo": {
     "name": "SP23-PO2-Mobile-g07",
     "slug": "SP23-PO2-Mobile-g07",
-    
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -30,6 +29,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "5665829d-4840-4ac0-b141-668dbed241c8"
+      }
     }
   }
 }
