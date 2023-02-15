@@ -2,7 +2,7 @@
   "expo": {
     "name": "SP23-PO2-Mobile-g07",
     "slug": "SP23-PO2-Mobile-g07",
-    "owner": "envoc_infrastructure",
+    
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
