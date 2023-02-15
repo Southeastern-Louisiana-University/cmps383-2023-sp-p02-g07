@@ -104,7 +104,7 @@ public class StationsController : ControllerBase
 
         dataContext.SaveChanges();
 
-        return Ok();
+        return Ok(); 
     }
 
     private static bool IsInvalid(TrainStationDto dto)
@@ -119,7 +119,7 @@ public class StationsController : ControllerBase
         return stations
             .Select(x => new TrainStationDto
             {
-                Id = x.Id,
+                Id = x.Id, 
                 Name = x.Name,
                 Address = x.Address,
             });

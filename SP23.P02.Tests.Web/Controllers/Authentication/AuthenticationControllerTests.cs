@@ -2,8 +2,10 @@
 using FluentAssertions;
 using SP23.P02.Tests.Web.Dtos;
 using SP23.P02.Tests.Web.Helpers;
+using UserDto = SP23.P02.Tests.Web.Dtos.UserDto;
 
 namespace SP23.P02.Tests.Web.Controllers.Authentication;
+
 
 [TestClass]
 public class AuthenticationControllerTests
