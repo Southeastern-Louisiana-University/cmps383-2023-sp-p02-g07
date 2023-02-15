@@ -19,11 +19,12 @@
     "production": {
       "ios": {
         "resourceClass": "m1-medium"
+      },
+      "android": {
+        "buildtype": "apk"
       }
-    },
-    "android": {
-      "buildtype": "apk"
     }
+    
   },
   "submit": {
     "production": {}
