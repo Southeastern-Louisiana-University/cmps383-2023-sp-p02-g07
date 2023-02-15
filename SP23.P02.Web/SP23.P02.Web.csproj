@@ -34,7 +34,7 @@
     <ItemGroup>
       <ReactFiles Include="$(SpaRoot)build\**" />
       <ResolvedFileToPublish Include="@(ReactFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
-        <RelativePath>%(RecursiveDir)%(FileName)%(Extension)</RelativePath>
+        <RelativePath>wwwroot\%(RecursiveDir)%(FileName)%(Extension)</RelativePath>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
         <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       </ResolvedFileToPublish>
