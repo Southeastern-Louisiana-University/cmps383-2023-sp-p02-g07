@@ -63,6 +63,8 @@ public class StationsController : ControllerBase
 
     [HttpPut]
     [Route("{id}")]
+    [Authorize(Roles = "Admin")]
+
     public ActionResult<TrainStationDto> UpdateStation(int id, TrainStationDto dto)
     {
         if (IsInvalid(dto))
@@ -88,6 +90,8 @@ public class StationsController : ControllerBase
 
     [HttpDelete]
     [Route("{id}")]
+    [Authorize(Roles = "Admin")]
+
     public ActionResult DeleteStation(int id)
     {
         var station = stations.FirstOrDefault(x => x.Id == id);
