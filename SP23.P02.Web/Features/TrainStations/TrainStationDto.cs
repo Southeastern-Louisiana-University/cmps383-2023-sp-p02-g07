@@ -9,6 +9,6 @@ public class TrainStationDto
     public string Name { get; set; }
 
     public string Address { get; set; }
-    public UserDto? Manager { get; set; }
+    public int? ManagerId { get; set; }
 
 }
