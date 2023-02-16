@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SP23.P02.Web.Data;
 
@@ -11,9 +12,11 @@ using SP23.P02.Web.Data;
 namespace SP23.P02.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230207160132_authentication")]
+    partial class authentication
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -152,17 +155,12 @@ namespace SP23.P02.Web.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ManagerId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ManagerId");
 
                     b.ToTable("TrainStation");
                 });
@@ -182,7 +180,7 @@ namespace SP23.P02.Web.Migrations
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
 
-            modelBuilder.Entity("SP23.P02.Web.Features.Users.User", b =>
+            modelBuilder.Entity("SP23.P02.Web.Features.Users.Users", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -261,7 +259,7 @@ namespace SP23.P02.Web.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
                 {
-                    b.HasOne("SP23.P02.Web.Features.Users.User", null)
+                    b.HasOne("SP23.P02.Web.Features.Users.Users", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -270,7 +268,7 @@ namespace SP23.P02.Web.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
                 {
-                    b.HasOne("SP23.P02.Web.Features.Users.User", null)
+                    b.HasOne("SP23.P02.Web.Features.Users.Users", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -279,20 +277,11 @@ namespace SP23.P02.Web.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
                 {
-                    b.HasOne("SP23.P02.Web.Features.Users.User", null)
+                    b.HasOne("SP23.P02.Web.Features.Users.Users", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("SP23.P02.Web.Features.TrainStations.TrainStation", b =>
-                {
-                    b.HasOne("SP23.P02.Web.Features.Users.User", "Manager")
-                        .WithMany()
-                        .HasForeignKey("ManagerId");
-
-                    b.Navigation("Manager");
                 });
 
             modelBuilder.Entity("SP23.P02.Web.Features.UserRole.UserRole", b =>
@@ -303,7 +292,7 @@ namespace SP23.P02.Web.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SP23.P02.Web.Features.Users.User", "User")
+                    b.HasOne("SP23.P02.Web.Features.Users.Users", "User")
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -319,7 +308,7 @@ namespace SP23.P02.Web.Migrations
                     b.Navigation("Users");
                 });
 
-            modelBuilder.Entity("SP23.P02.Web.Features.Users.User", b =>
+            modelBuilder.Entity("SP23.P02.Web.Features.Users.Users", b =>
                 {
                     b.Navigation("Roles");
                 });
